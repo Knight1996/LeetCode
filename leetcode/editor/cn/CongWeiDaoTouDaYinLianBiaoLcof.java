@@ -18,6 +18,7 @@ package leetcode.editor.cn;
 // 👍 62 👎 0
 
 
+import java.util.ArrayList;
 import java.util.Stack;
 
 public class CongWeiDaoTouDaYinLianBiaoLcof{
@@ -36,13 +37,16 @@ public class CongWeiDaoTouDaYinLianBiaoLcof{
  * }
  */
 class Solution {
+
+//    ArrayList<Integer> list = new ArrayList<>() ;
+
     public int[] reversePrint(ListNode head) {
 //     ---------------------------栈----------------------------------
         Stack<ListNode> stack = new Stack<ListNode>() ;
-        ListNode tem = head ;
-        while(tem != null){
-            stack.push(tem) ;
-            tem = tem.next ;
+        ListNode pNode = head ;
+        while(pNode != null){
+            stack.push(pNode) ;
+            pNode = pNode.next ;
         }
 
         int len = stack.size() ;
@@ -52,7 +56,25 @@ class Solution {
         }
 
         return ans ;
+//      ------------------------------------------------------------------
+
+//      ---------------------------递归------------------------------------
+        /*helper(head) ;
+        int[] ans = new int[list.size()] ;
+        for(int i = 0 ; i < ans.length ; i++){
+            ans[i] = list.get(i) ;
+        }
+        return ans ;*/
+//      -------------------------------------------------------------------
     }
+
+    /*void helper(ListNode head){
+        if(head == null){
+            return ;
+        }
+        helper(head.next) ;
+        list.add(head.val) ;
+    }*/
 }
 //leetcode submit region end(Prohibit modification and deletion)
 

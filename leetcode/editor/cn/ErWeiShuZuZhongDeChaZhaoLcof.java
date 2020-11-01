@@ -63,24 +63,28 @@ class Solution {
 //      -------------------------------------------------------------------
 
 //     -------------------------------线性查找--------------------------------
+        //从数组的右上角开始查找：每次分析右上角元素
+        //若  此元素 大于 目标元素 ，则列下标减一  （此列的右边（包括此列）都不会满足）
+        //若  此元素 小于 目标元素 ，则行下标加一  （此行的上边（包括此行）都不会满足）
         if(matrix == null || matrix.length == 0 || matrix[0].length == 0){
             return false ;
         }
 
-        int rows = matrix.length , col = matrix[0].length ;
-        int left = 0 , right = col - 1 ;
-        while(left < rows && right >= 0){
-            int num = matrix[left][right] ;
+        int rows = matrix.length , cols = matrix[0].length ;
+        int x = 0 , y = cols - 1 ;
+        while(x < rows && y >= 0){
+            int num = matrix[x][y] ;
             if(num == target){
                 return true ;
             }
             else if(num < target){
-                left++ ;
+                x++ ;
             }
             else{
-                right-- ;
+                y-- ;
             }
         }
+
         return false ;
     }
 }

@@ -72,6 +72,7 @@ class Solution {
                 if(nums[i] == nums[nums[i]]){
                     return nums[i] ;
                 }
+                //swap(nums[i] , nums[nums[i]])
                 tem = nums[i];
                 nums[i] = nums[tem];
                 nums[tem] = tem;
