@@ -31,15 +31,25 @@ public class LianBiaoZhongDaoShuDiKgeJieDianLcof{
 class Solution {
     public ListNode getKthFromEnd(ListNode head, int k) {
 //      ----------------------------双指针----------------------------
+        if(head == null || k == 0){
+            return null ;
+        }
+
         ListNode slow = head ;
         ListNode fast = head ;
+
         for(int i = 0 ; i < k ; i++){
+            if(fast == null && k > i){
+                return null ;
+            }
             fast = fast.next ;
         }
+
         while(fast != null){
             fast = fast.next ;
             slow = slow.next ;
         }
+
         return slow ;
     }
 }

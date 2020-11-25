@@ -32,7 +32,30 @@ public class HeBingLiangGePaiXuDeLianBiaoLcof{
  */
 class Solution {
     public ListNode mergeTwoLists(ListNode l1, ListNode l2) {
+//      -------------------------递归---------------------------
+        if(l1 == null){
+            return l2 ;
+        }
+        else if(l2 == null){
+            return l1 ;
+        }
+
+        ListNode cur = new ListNode(0) ;
+
+        if(l1.val < l2.val){
+            cur = l1 ;
+            cur.next = mergeTwoLists(l1.next , l2) ;
+        }
+        else{
+            cur = l2 ;
+            cur.next = mergeTwoLists(l1 , l2.next) ;
+        }
+        return cur ;
+
+//      -------------------------循环---------------------------
+        /*// 新建头结点：
         ListNode ans = new ListNode(0) ;
+        // 遍历的节点：
         ListNode cur = ans ;
         while(l1 != null && l2 != null){
             if(l1.val < l2.val){
@@ -51,7 +74,7 @@ class Solution {
         else{
             cur.next = l2 ;
         }
-        return ans.next ;
+        return ans.next ;*/
     }
 }
 //leetcode submit region end(Prohibit modification and deletion)

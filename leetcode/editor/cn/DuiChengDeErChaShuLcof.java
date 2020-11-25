@@ -66,6 +66,7 @@ class Solution {
         return helper(root.left , root.right) ;
     }
 
+    // 判断此节点是否对称：
     public boolean helper(TreeNode left , TreeNode right){
         if(left == null && right == null){
             return true ;

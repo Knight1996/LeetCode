@@ -33,14 +33,52 @@ public class QueShiDeShuZiLcof{
 //leetcode submit region begin(Prohibit modification and deletion)
 class Solution {
     public int missingNumber(int[] nums) {
-        int sum = 0 ;
+//      --------------------------求和------------------------------
+        /*int sum = 0 ;
         for(int i = 0 ; i <= nums.length ; i++){
             sum += i ;
         }
         for(int num : nums){
             sum -= num ;
         }
-        return sum ;
+        return sum ;*/
+//      --------------------------------------------------------------
+
+//      ------------------------利用排序数组条件-----------------------
+        /*for(int i = 0 ; i < nums.length ; i++){
+            if(i != nums[i]){
+                return i ;
+            }
+        }
+        return nums.length ;*/
+//      --------------------------------------------------------------
+
+//      ---------------------------二分查找----------------------------
+        /*int left = 0 , right = nums.length ;
+        while(left < right){
+            int mid = left + (right - left) / 2 ;
+            if(mid == nums[mid]){
+                left = mid + 1 ;
+            }
+            else{
+                right = mid ;
+            }
+        }
+        return left ;  //return right ;*/
+//      ----------------------------------------------------------------
+
+//      --------------------------位运算(异或)---------------------------
+        int ans = 0 ;
+        for(int i = 1 ; i <= nums.length ; i++){
+            ans ^= i ;
+        }
+        for(int num : nums){
+            ans ^= num ;
+        }
+        return ans ;
+//      -----------------------------------------------------------------
+
+
     }
 }
 //leetcode submit region end(Prohibit modification and deletion)

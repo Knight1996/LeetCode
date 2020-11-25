@@ -38,15 +38,18 @@ class Solution {
 //      -----------------------分组异或-------------------------------
         int ans = 0 ;
 
+        // 计算所有数字异或的结果ans：
         for(int num : nums){
             ans ^= num ;
         }
 
+        // 统计ans中第一个 1 出现的位置：
         int flag = 1 ;
         while((flag & ans) == 0){
             flag <<= 1 ;
         }
 
+        // 将数据根据flag位是 0 或者 1 分成 a , b 两组，分别异或：
         int a = 0 , b = 0 ;
         for(int num : nums){
             if((flag & num) == 0){

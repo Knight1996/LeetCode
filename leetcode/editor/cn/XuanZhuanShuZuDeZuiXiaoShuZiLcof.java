@@ -42,7 +42,8 @@ class Solution {
                 left = mid + 1 ;
             }
             else{
-                //此时 numbers[mid] == numbers[right] 忽略右端点
+                //此时 numbers[mid] == numbers[right]
+                // 无法确定在哪个区间 ， j = j - 1 ; 继续判断：
                 right-- ;
             }
         }

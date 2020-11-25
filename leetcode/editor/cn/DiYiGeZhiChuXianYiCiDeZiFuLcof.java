@@ -31,7 +31,7 @@ public class DiYiGeZhiChuXianYiCiDeZiFuLcof{
 class Solution {
     public char firstUniqChar(String s) {
 //      -------------------------哈希表-----------------------------------
-        /*HashMap<Character , Boolean> hashMap = new HashMap<>() ;
+        HashMap<Character , Boolean> hashMap = new HashMap<>() ;
         char[] chars = s.toCharArray() ;
         for(char c : chars){
             hashMap.put(c , hashMap.containsKey(c)) ;
@@ -41,15 +41,15 @@ class Solution {
                 return c ;
             }
         }
-        return ' ';*/
+        return ' ';
 
 //     ------------------------索引-------------------------------
-        for(char c : s.toCharArray()){
+        /*for(char c : s.toCharArray()){
             if(s.indexOf(c) == s.lastIndexOf(c)){
                 return c ;
             }
         }
-        return ' ' ;
+        return ' ' ;*/
     }
 }
 //leetcode submit region end(Prohibit modification and deletion)

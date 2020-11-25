@@ -41,19 +41,19 @@ public class YuanQuanZhongZuiHouShengXiaDeShuZiLcof{
 class Solution {
     public int lastRemaining(int n, int m) {
 //     ------------------------迭代-----------------------------
-        /*int ans = 0 ;*/
-        /*for(int i = 2 ; i <= n ; i++){*/
-        /*    ans = (ans + m) % i ;*/
-        /*}*/
-        /*return ans ;*/
+        int pos = 0 ;  // 最后幸存的元素索引为 0 ：
+        for(int i = 2 ; i <= n ; i++){
+            pos = (pos + m) % i ;
+        }
+        return pos ;
 //      -----------------------递归-----------------------------
-        if(n < 1 || m < 1){
+       /* if(n < 1 || m < 1){
             return -1 ;
         }
         if(n == 1){
             return 0 ;
         }
-        return (lastRemaining(n - 1 , m) + m) % n ;
+        return (lastRemaining(n - 1 , m) + m) % n ;*/
     }
 }
 //leetcode submit region end(Prohibit modification and deletion)

@@ -82,6 +82,7 @@ public class LiangGeLianBiaoDeDiYiGeGongGongJieDianLcof{
  */
 public class Solution {
     public ListNode getIntersectionNode(ListNode headA, ListNode headB) {
+//      --------------------------双指针----------------------------
         ListNode curA = headA ;
         ListNode curB = headB ;
         while(curA != curB){

@@ -48,6 +48,7 @@ public class ShanChuLianBiaoDeJieDianLcof{
  */
 class Solution {
     public ListNode deleteNode(ListNode head, int val) {
+//    ------------------------方法一：直接扫描删除节点------------------------------------
         //虚拟节点，指向头结点
         ListNode dummy = new ListNode(0) ;
         dummy.next = head ;
@@ -64,6 +65,16 @@ class Solution {
             cur = cur.next ;
         }
         return dummy.next ;
+
+//     -----------------------------方法二：递归------------------------------
+       /* if(head == null){
+            return head ;
+        }
+        if(head.val == val){
+            return head.next ;
+        }
+        head.next = deleteNode(head.next , val);
+        return head ;*/
     }
 }
 //leetcode submit region end(Prohibit modification and deletion)

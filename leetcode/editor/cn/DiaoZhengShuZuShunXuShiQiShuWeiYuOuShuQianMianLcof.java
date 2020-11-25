@@ -37,6 +37,7 @@ class Solution {
             while(i < j && (nums[j] & 1) == 0){
                 j-- ;
             }
+            // 交换 nums[i] 和 nums[j] :
             tem = nums[i] ;
             nums[i] = nums[j] ;
             nums[j] = tem ;

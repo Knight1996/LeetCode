@@ -25,7 +25,7 @@ package leetcode.editor.cn;
 // 
 //
 // 
-// 👍 88 👎 0
+// 👍 100 👎 0
 
 import java.util.HashMap;
 import java.util.Map;
@@ -39,34 +39,50 @@ public class ShuZuZhongShuZiChuXianDeCiShuIiLcof{
 //leetcode submit region begin(Prohibit modification and deletion)
 class Solution {
     public int singleNumber(int[] nums) {
+//      -------------------------------Hash表---------------------------------
+       /* // Map.Entry是Map声明的一个内部接口，此接口为泛型，定义为Entry<K,V>。
+        // 它表示Map中的一个实体（一个key-value对）
 
-//      -------------------------hashMap----------------------------
-        /*HashMap<Integer , Integer> hashMap = new HashMap<>() ;
-
-        for(int i = 0 ; i < nums.length ; i++){
-            hashMap.put(nums[i] , hashMap.getOrDefault(nums[i] , 0) + 1) ;
+        //entrySet是 java中 键-值 对的集合，Set里面的类型是Map.Entry，一般可以通过map.entrySet()得到。
+        //entrySet实现了Set接口，里面存放的是键值对。一个K对应一个V。
+        Map<Integer , Integer> map = new HashMap<>() ;
+        for(int num : nums){
+            map.put(num , map.getOrDefault(num , 0) + 1) ;
         }
-
-        //  Map.entrySet()  这个方法返回的是一个Set<Map.Entry<K,V>>
-        //    Map.Entry     是Map中的一个接口，他的用途是表示一个映射项（里面有Key和Value）
-
-        for(Map.Entry<Integer , Integer> entry : hashMap.entrySet()){
+        for(Map.Entry<Integer, Integer> entry : map.entrySet()){
             if(entry.getValue() == 1){
                 return entry.getKey() ;
             }
         }
+        return 0 ;*/
 
-        return -1 ;*/
+//      ------------------------------逐位判断---------------------------------
+        // 统计数组 nums 所有元素对应位的 1 的个数，最后在与 3 求余，
+        // 即可而得到只出现 1 次的数字
+        /* int ans = 0 ;
+        int bit = 1 ;
+        for(int i = 0 ; i < 32 ; i++){
+            int cnt = 0 ;
+            for(int num : nums){
+                if((num & bit) != 0){
+                    cnt++ ;
+                }
+            }
+            if(cnt % 3 == 1){
+                ans |= bit ;
+            }
+            bit <<= 1 ;
+        }
+        return ans ;*/
 
-//      ----------------------------有限状态自动机-------------------------------
+//      ------------------------------有限元状态机----------------------------
         int ones = 0 , twos = 0 ;
-
         for(int num : nums){
             ones = ones ^ num & ~twos ;
             twos = twos ^ num & ~ones ;
         }
-
         return ones ;
+    }
 }
 //leetcode submit region end(Prohibit modification and deletion)
 

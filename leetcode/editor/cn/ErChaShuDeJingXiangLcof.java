@@ -56,9 +56,13 @@ class Solution {
         if(root == null){
             return null ;
         }
+
         TreeNode temNode = root.left ;
+        // 右节点翻转后放在左节点：
         root.left = mirrorTree(root.right) ;
+        // 左节点反转后放在右节点：
         root.right = mirrorTree(temNode) ;
+
         return root ;
     }
 }
