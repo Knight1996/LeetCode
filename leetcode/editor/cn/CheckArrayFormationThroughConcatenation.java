@@ -59,6 +59,9 @@ package leetcode.editor.cn;
 // Related Topics 排序 数组 
 // 👍 14 👎 0
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class CheckArrayFormationThroughConcatenation{
     public static void main(String[] args) {
         Solution solution = new CheckArrayFormationThroughConcatenation().new Solution();
@@ -68,18 +71,32 @@ public class CheckArrayFormationThroughConcatenation{
 //leetcode submit region begin(Prohibit modification and deletion)
 class Solution {
     public boolean canFormArray(int[] arr, int[][] pieces) {
-        int cnt = 0 ;
-        for(int[] p : pieces){
-            int len = p.length ; // 滑动窗口大小：
-            for(int i = 0 ; i <= arr.length - len ; i++){
-                int index = 0 ; // 子数组下标：
-                for(int j = i ; j < i + len ; j++){
-                    if(arr[j] != p[index]){
-                        break ;
+        Map<Integer , int[]> map = new HashMap<>() ;
+        for(int[] piece : pieces){
+            // 以单个piece数组的第一个元素为 键 ，将每个 piece数组 存入 map 中:
+            map.put(piece[0] , piece) ;
+        }
+
+        for(int i = 0 ; i < arr.length ;){
+            int curVal = arr[i] ;
+            // 如果map集合中有这个元素作为第一个元素的数组:
+            if (map.containsKey(curVal)){
+                int[] piece = map.get(curVal) ;
+                for(int value : piece){
+                    if(arr[i] == value){
+                        // piece数组一直符合条件就一直加i，看arr的下一个元素，直到遍历完piece数组
+                        i++ ;
+                    }
+                    else{
+                        return false ;
                     }
                 }
             }
+            else{
+                return false ;
+            }
         }
+        return true ;
     }
 }
 //leetcode submit region end(Prohibit modification and deletion)
