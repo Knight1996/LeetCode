@@ -60,7 +60,26 @@ public class MergeInBetweenLinkedLists{
  */
 class Solution {
     public ListNode mergeInBetween(ListNode list1, int a, int b, ListNode list2) {
-        
+        // 第一部分的头结点head1：
+        ListNode head1 = list1 ;
+        for(int i = 0 ; i < a - 1 ; i++){
+            head1 = head1.next ;
+        }
+
+        // 第三部分的头结点head3：
+        ListNode head3 = head1.next ;
+        for(int i = 0 ; i < b - a + 1 ; i++){
+            head3 = head3.next ;
+        }
+
+        // 连接第一部分与第二部分：
+        head1.next = list2;
+        while (head1.next != null){
+             head1 = head1.next;
+        }
+        // 连接第二部分与第三部分：
+        head1.next = head3;
+        return list1;
     }
 }
 //leetcode submit region end(Prohibit modification and deletion)
