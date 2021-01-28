@@ -50,7 +50,7 @@ class Solution {
         int a = 0, b = 0;
         // 将数据根据 flag 位是 0 或者 1 分成 a , b 两组，分别异或：
         for (int num : nums) {
-            if ((flag & num) != 0) {
+            if ((flag & num) == 0) {
                 a ^= num;
             } else {
                 b ^= num;

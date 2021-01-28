@@ -60,19 +60,26 @@ public class ReplaceAllSToAvoidConsecutiveRepeatingCharacters{
 //leetcode submit region begin(Prohibit modification and deletion)
 class Solution {
     public String modifyString(String s) {
-        char[] tem = s.toCharArray() ;
-        int k = 0 ;
-        for(int i = 0 ; i < tem.length ; i++){
-            if(tem[i] == '?'){
-                while((i > 0 && (char)('a' + k % 26) == tem[i - 1])
-                        || (i < tem.length - 1 && (char)('a' + k % 26) == tem[i + 1])){
-                    k++ ;
+        char[] arr = s.toCharArray() ;
+        int len = arr.length ;
+        for(int i = 0 ; i < len ; i++){
+            if(arr[i] == '?'){
+                char low = 'a' ;
+                char high = 'a' ;
+                char cur = 'a' ;
+                if(i != 0){
+                    low = arr[i - 1] ;
                 }
-
-                tem[i] = (char) ('a' + (k % 26)) ;
+                if(i != len - 1){
+                    high = arr[i + 1] ;
+                }
+                while(cur == low || cur == high){
+                    cur++ ;
+                }
+                arr[i] = cur ;
             }
         }
-        return new String(tem) ;
+        return String.valueOf(arr) ;
     }
 }
 //leetcode submit region end(Prohibit modification and deletion)

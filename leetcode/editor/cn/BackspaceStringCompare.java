@@ -64,7 +64,12 @@ public class BackspaceStringCompare{
 //leetcode submit region begin(Prohibit modification and deletion)
 class Solution {
     public boolean backspaceCompare(String S, String T) {
-        int indexS = S.length() - 1 ;
+//      ----------------------------重构字符串---------------------------
+        return build(S).equals(build(T)) ;
+//      ----------------------------------------------------------------
+
+//      -----------------------------双指针------------------------------
+        /*int indexS = S.length() - 1 ;
         int indexT = T.length() - 1 ;
         int skipS = 0 ;
         int skipT = 0 ;
@@ -109,7 +114,24 @@ class Solution {
             indexS--;
             indexT--;
         }
-        return true;
+        return true;*/
+//      -------------------------------------------------------------------
+    }
+
+    public String build(String s){
+        StringBuffer str = new StringBuffer() ;
+        for(int i = 0 ; i < s.length() ; i++){
+            char c = s.charAt(i) ;
+            if(c != '#'){
+                str.append(c) ;
+            }
+            else{
+                if(str.length() > 0){
+                    str.deleteCharAt(str.length() - 1) ;
+                }
+            }
+        }
+        return str.toString() ;
     }
 }
 //leetcode submit region end(Prohibit modification and deletion)

@@ -23,7 +23,20 @@ public class AddDigits{
 //leetcode submit region begin(Prohibit modification and deletion)
 class Solution {
     public int addDigits(int num) {
-        return (num - 1) % 9 + 1;
+//      -----------------------------------数学法----------------------------------
+        /*return (num - 1) % 9 + 1;*/
+//      ---------------------------------------------------------------------------
+
+//      -----------------------------------递归------------------------------------
+        if(num < 10){
+            return num ;
+        }
+        int next = 0 ;
+        while(num > 0){
+            next += num % 10 ;
+            num /= 10 ;
+        }
+        return addDigits(next) ;
     }
 }
 //leetcode submit region end(Prohibit modification and deletion)

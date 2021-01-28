@@ -76,7 +76,23 @@ class Solution {
             }
         }
         return words.length - cnt ;
-    }
+//      ------------------------------------暴力---------------------------------
+        int cnt = 0 ;
+        for(String s : words){
+            char[] arr = s.toCharArray() ;
+            boolean flag = true ;
+            for(char c : arr){
+                if(!allowed.contains(c+"")){
+                    flag = false ;
+                }
+
+            }
+            if(flag == true){
+                cnt++ ;
+            }
+        }
+        return cnt ;
+//      ---------------------------------------------------------------------------
 }
 //leetcode submit region end(Prohibit modification and deletion)
 

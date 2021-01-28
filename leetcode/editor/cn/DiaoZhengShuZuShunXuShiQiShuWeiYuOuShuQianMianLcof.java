@@ -29,6 +29,7 @@ public class DiaoZhengShuZuShunXuShiQiShuWeiYuOuShuQianMianLcof{
 //leetcode submit region begin(Prohibit modification and deletion)
 class Solution {
     public int[] exchange(int[] nums) {
+//      ---------------------------------双指针-------------------------------
         int i = 0 , j = nums.length - 1 , tem = 0 ;
         while(i < j){
             while(i < j && (nums[i] & 1) == 1){
@@ -43,6 +44,24 @@ class Solution {
             nums[j] = tem ;
         }
         return nums ;
+//      -----------------------------------------------------------------
+
+//      ----------------------------快慢指针------------------------------
+        // slow : 指向奇数存储位置：
+        // fast : 探索奇数存在位置：
+        /*int slow = 0 ;
+        int fast = 0 ;
+        while(fast < nums.length){
+            if((nums[fast] & 1) == 1){
+                int tem = nums[slow] ;
+                nums[slow] = nums[fast] ;
+                nums[fast] = tem ;
+                slow++ ;
+            }
+            fast++ ;
+        }
+        return nums ;*/
+//      -----------------------------------------------------------------
     }
 }
 //leetcode submit region end(Prohibit modification and deletion)

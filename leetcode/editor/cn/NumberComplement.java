@@ -42,13 +42,14 @@ public class NumberComplement{
 //leetcode submit region begin(Prohibit modification and deletion)
 class Solution {
     public int findComplement(int num) {
-        int m = num ;
-        int n = 0 ;
-        while(m > 0){
-            n = (n << 1) + 1 ;
-            m >>= 1 ;
+        int n = 1 ;
+        int tem = num ;
+        while(tem != 0){
+            tem >>= 1 ;
+            n <<= 1 ;
         }
-        return num ^ n ;
+        n -= 1 ;
+        return n ^ num ;
     }
 }
 //leetcode submit region end(Prohibit modification and deletion)

@@ -56,9 +56,25 @@ public class SumOfAllOddLengthSubarrays{
 //leetcode submit region begin(Prohibit modification and deletion)
 class Solution {
     public int sumOddLengthSubarrays(int[] arr) {
+//      ----------------------------------数学推理法------------------------------------
+        int sum = 0 ;
         int len = arr.length ;
-        int ans = 0 ;
+        // 奇数子数组长度：
+        for(int i = 1 ; i <= len ; i+= 2){
+            //   j:子数组起始坐标    j + i：子数组终止坐标：
+            for(int j = 0 ; j + i <= len ; j++){
+                //  k: 奇数子数组求和索引：
+                for(int k = j ; k < j + i ; k++){
+                    sum += arr[k] ;
+                }
+            }
+        }
+        return sum ;
+//      -------------------------------------------------------------------------------
 
+//      ----------------------------------数学推理法------------------------------------
+        /*int len = arr.length ;
+        int ans = 0 ;
         for(int i = 0 ; i < len ; i++){
             int leftOdd = (i + 1) / 2 ;
             int leftEven = i / 2 + 1 ;
@@ -66,8 +82,8 @@ class Solution {
             int rightEven = (len - 1 - i) / 2 + 1 ;
             ans += arr[i] * (leftOdd * rightOdd + leftEven * rightEven) ;
         }
-        
-        return ans ;
+        return ans ;*/
+//      --------------------------------------------------------------------------
     }
 }
 //leetcode submit region end(Prohibit modification and deletion)

@@ -35,6 +35,7 @@ class Solution {
         int i = 0 ;
         while(i < len){
             int start = i ;
+            // 到达第一个子字符串的末尾；
             while(i < len && chars[i] != ' '){
                 i++;
             }
@@ -45,7 +46,7 @@ class Solution {
                 left++ ;
                 right-- ;
             }
-
+            // 扫过空格:
             while(i < len && chars[i] == ' '){
                 i++;
             }

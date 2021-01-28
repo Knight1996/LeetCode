@@ -24,16 +24,13 @@ public class MaximumSubarray{
 //leetcode submit region begin(Prohibit modification and deletion)
 class Solution {
     public int maxSubArray(int[] nums) {
-        int[] dp = new int[nums.length] ;
-        int max = nums[0] ;
-        dp[0] = nums[0] ;
-        for(int i = 1 ; i < nums.length ; i++){
-            dp[i] = Math.max(dp[i - 1] + nums[i] , nums[i]) ;
-            if(dp[i] > max){
-                max = dp[i] ;
-            }
+        int pre = 0 ;
+        int ans = nums[0];
+        for(int num : nums){
+            pre = Math.max(pre + num , num) ;
+            ans = Math.max(ans , pre) ;
         }
-        return max ;
+        return ans ;
     }
 }
 //leetcode submit region end(Prohibit modification and deletion)

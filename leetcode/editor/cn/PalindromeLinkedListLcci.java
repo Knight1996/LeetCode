@@ -45,7 +45,8 @@ public class PalindromeLinkedListLcci{
  */
 class Solution {
     public boolean isPalindrome(ListNode head) {
-        List<Integer> list = new ArrayList<>() ;
+//      ---------------------------List--------------------------------
+       /*List<Integer> list = new ArrayList<>() ;
 
         ListNode cur = head ;
 
@@ -64,7 +65,33 @@ class Solution {
             left++ ;
             right-- ;
         }
+        return true ;*/
+//      -------------------------------------------------------------
+
+//      -------------------------------------------------------------
+        int len = 0 ;
+        ListNode cur = head ;
+        while(cur != null){
+            cur = cur.next ;
+            len++ ;
+        }
+        Stack<ListNode> stack = new Stack<>() ;
+        cur = head ;
+        for(int i = 0 ; i < len/2 ; i++){
+            stack.add(cur) ;
+            cur = cur.next ;
+        }
+        if((len&1) == 1){
+            cur = cur.next ;
+        }
+        for(int i = 0 ; i < len/2 ; i++){
+            if(stack.pop().val != cur.val){
+                return false ;
+            }
+            cur = cur.next ;
+        }
         return true ;
+//      -------------------------------------------------------------
     }
 }
 //leetcode submit region end(Prohibit modification and deletion)

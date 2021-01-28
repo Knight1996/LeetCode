@@ -33,6 +33,7 @@ public class NGK0Fy{
 //leetcode submit region begin(Prohibit modification and deletion)
 class Solution {
     public int calculate(String s) {
+//      -----------------------模拟-------------------------
         int x = 1 , y = 0 ;
         for(int i = 0 ; i < s.length() ; i++){
             if(s.charAt(i) == 'A'){
@@ -43,13 +44,11 @@ class Solution {
             }
         }
         return x + y ;
+//      ----------------------------------------------------
 
-        /*int result = 1;
-        for(int i = 0 ; i < s.length();i++) {
-            result *= 2;
-        }
-        return result;*/
-
+//      -----------------------数学推理----------------------
+        /*return 1 << s.length() ;*/
+//      -----------------------------------------------------
     }
 }
 //leetcode submit region end(Prohibit modification and deletion)

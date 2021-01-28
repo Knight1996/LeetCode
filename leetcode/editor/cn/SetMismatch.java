@@ -29,7 +29,7 @@ public class SetMismatch{
 
 //leetcode submit region begin(Prohibit modification and deletion)
 class Solution {
-    public int[] findErrorNums(int[] nums) {
+    public int[] findErrorNums(int[] nums){
         int[] arr = new int[nums.length + 1] ;
         int dup = -1 , miss= 1 ;
         for(int i = 0 ; i < nums.length ; i++){
