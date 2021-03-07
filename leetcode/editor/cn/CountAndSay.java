@@ -49,17 +49,15 @@ public class CountAndSay{
 //leetcode submit region begin(Prohibit modification and deletion)
 class Solution {
     public String countAndSay(int n) {
+//      ---------------------------递归------------------------------
         if(n == 1){
             return "1";
         }
-
         String str = countAndSay(n - 1) ;
-
         StringBuffer ans = new StringBuffer() ;
         int len = str.length();
         int start = 0 ; //慢指针
         int i = 1 //快指针
-
         for(; i < len + 1 ; i++){
             if(i == len){
                 ans.append(i - start).append(str.charAt(start)) ;
@@ -69,7 +67,6 @@ class Solution {
                 start = i ;
             }
         }
-
         return ans.toString() ;
     }
 }

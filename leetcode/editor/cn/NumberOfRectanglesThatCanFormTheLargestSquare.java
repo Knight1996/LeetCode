@@ -49,7 +49,37 @@ public class NumberOfRectanglesThatCanFormTheLargestSquare{
 //leetcode submit region begin(Prohibit modification and deletion)
 class Solution {
     public int countGoodRectangles(int[][] rectangles) {
+//      -----------------------------两次遍历-----------------------------
+        /*int edge = Integer.MIN_VALUE ;
+        int ans = 0;
+        for(int i = 0 ; i < rectangles.length ; i++){
+            int tem = Math.min(rectangles[i][0] , rectangles[i][1]) ;
+            edge = Math.max(tem , edge) ;
+        }
+        for(int i = 0 ; i < rectangles.length ; i++){
+            int tem = Math.min(rectangles[i][0] , rectangles[i][1]) ;
+            if(tem == edge){
+                ans++ ;
+            }
+        }
+        return ans ;*/
+//      -------------------------------------------------------------------
 
+//      -----------------------------一次遍历（优化）------------------------
+        int edge = Integer.MIN_VALUE ;
+        int ans = 0;
+        for(int i = 0 ; i < rectangles.length ; i++){
+            int tem = Math.min(rectangles[i][0] , rectangles[i][1]) ;
+            if(tem > edge){
+                edge = tem ;
+                ans = 1 ;
+            }
+            else if(tem == edge){
+                ans++ ;
+            }
+        }
+        return ans ;
+//      ---------------------------------------------------------------------
     }
 }
 //leetcode submit region end(Prohibit modification and deletion)

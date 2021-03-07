@@ -67,6 +67,20 @@ class CQueue {
             return stackB.pop() ;
         }
     }
+
+    public int peek(){
+        if(stackB.isEmpty()){
+            while(!stackA.isEmpty()){
+                stackB.push(stackA.pop());
+            }
+        }
+        if(stackB.isEmpty()){
+            return -1 ;
+        }
+        else{
+            return stackB.peek();
+        }
+    }
 }
 
 /**

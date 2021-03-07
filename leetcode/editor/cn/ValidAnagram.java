@@ -30,7 +30,8 @@ public class ValidAnagram{
 //leetcode submit region begin(Prohibit modification and deletion)
 class Solution {
     public boolean isAnagram(String s, String t) {
-        if (s.length() != t.length()){
+//      --------------------排序-------------------------
+        /*if (s.length() != t.length()){
             return false;
         }
 
@@ -40,7 +41,26 @@ class Solution {
         Arrays.sort(strs);
         Arrays.sort(strt);
 
-        return Arrays.equals(strs , strt);
+        return Arrays.equals(strs , strt);*/
+//      --------------------------------------------------
+
+//      -----------------------数组------------------------
+        int[] arr = new int[26] ;
+        for(int i = 0 ; i < s.length() ; i++){
+            char c = s.charAt(i) ;
+            arr[c - 'a']++ ;
+        }
+        for(int i = 0 ; i < t.length() ; i++){
+            char c = t.charAt(i) ;
+            arr[c - 'a']-- ;
+        }
+        for(int n : arr){
+            if(n != 0){
+                return false ;
+            }
+        }
+        return true ;
+//      ---------------------------------------------------
     }
 }
 //leetcode submit region end(Prohibit modification and deletion)

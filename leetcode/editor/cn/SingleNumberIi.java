@@ -30,8 +30,8 @@ public class SingleNumberIi{
 //leetcode submit region begin(Prohibit modification and deletion)
 class Solution {
     public int singleNumber(int[] nums) {
+//      -------------------------------hashMap--------------------------------
         HashMap<Integer , Integer> hashMap = new HashMap<>() ;
-
         for(int num : nums){
             hashMap.put(num , hashMap.getOrDefault(num , 0) + 1) ;
         }
@@ -41,8 +41,17 @@ class Solution {
                 return k ;
             }
         }
-
         return -1 ;
+//      -----------------------------------------------------------------------
+
+//      -------------------------------位运算-----------------------------------
+        /*int ones = 0 , twos = 0 ;
+        for(int num : nums){
+            ones = ones ^ num & ~twos;
+            twos = twos ^ num & ~ones;
+        }
+        return ones;*/
+//      ------------------------------------------------------------------------
     }
 }
 //leetcode submit region end(Prohibit modification and deletion)

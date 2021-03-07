@@ -28,6 +28,8 @@ package leetcode.editor.cn;
 // Related Topics 栈 
 // 👍 83 👎 0
 
+import java.util.Stack;
+
 public class RemoveAllAdjacentDuplicatesInString{
     public static void main(String[] args) {
         Solution solution = new RemoveAllAdjacentDuplicatesInString().new Solution();
@@ -37,19 +39,38 @@ public class RemoveAllAdjacentDuplicatesInString{
 //leetcode submit region begin(Prohibit modification and deletion)
 class Solution {
     public String removeDuplicates(String S) {
-        StringBuffer ans = new StringBuffer() ;
+//      ----------------------------字符串操作---------------------------
+        /*StringBuffer ans = new StringBuffer() ;
         int len = 0 ;
         for(char c : S.toCharArray()){
             if(len != 0 && c == ans.charAt(len - 1)){
-                ans.deleteCharAt(len - 1);
-                len--;
+                ans.deleteCharAt(len - 1) ;
+                len-- ;
             }
             else{
-                ans.append(c);
+                ans.append(c) ;
                 len++;
             }
         }
-        return ans.toString();
+        return ans.toString() ;*/
+
+//      ------------------------------栈-----------------------------------
+        Stack<Character> stack = new Stack<>() ;
+        char[] arr = S.toCharArray() ;
+        int len = S.length() ;
+        for(int i = 0 ; i < len ; i++){
+            if(stack.isEmpty() || stack.peek() != arr[i]){
+                stack.push(arr[i]) ;
+            }
+            else{
+                stack.pop();
+            }
+        }
+        StringBuffer ans = new StringBuffer() ;
+        for(Character c : stack){
+            ans.append(c) ;
+        }
+        return ans.toString() ;
     }
 }
 //leetcode submit region end(Prohibit modification and deletion)

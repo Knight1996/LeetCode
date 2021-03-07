@@ -31,6 +31,7 @@ class Solution {
         }
         int len = prices.length;
         int[][] dp = new int[len][3] ;
+        // dp[i] 表示第 i 天结束之 后 的 累计最大收益。
         // dp[i][0] :手上持有股票的最大收益：
         // dp[i][1] :手上不持有股票，并且处于 冷冻期 中的 累计最大收益
         // dp[i][2]: 手上不持有股票，并且不在 冷冻期 中的 累计最大收益

@@ -51,7 +51,7 @@ public class UnivaluedBinaryTree{
  */
 class Solution {
     public boolean isUnivalTree(TreeNode root) {
-//        ------------------------- 递归 ----------------------------
+//      ------------------------- 递归 ----------------------------
         if(root == null){
             return true ;
         }

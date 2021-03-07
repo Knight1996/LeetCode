@@ -40,7 +40,7 @@ class Solution {
     public int maxProfit(int[] prices, int fee) {
 //      ------------------------------------动态规划--------------------------------------
 //      dp[i][0] 表示第 i 天交易完后手里没有股票的最大利润，
-//      dp[i][1]dp[i][1] 表示第 i 天交易完后手里持有一支股票的最大利润（ i 从 00 开始）
+//      dp[i][1] 表示第 i 天交易完后手里持有一支股票的最大利润
         int len = prices.length ;
         int[][] dp = new int[len][2] ;
         dp[0][0] = 0 ;

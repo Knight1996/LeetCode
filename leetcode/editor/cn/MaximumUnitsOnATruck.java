@@ -45,6 +45,8 @@ package leetcode.editor.cn;
 // Related Topics 贪心算法 排序 
 // 👍 7 👎 0
 
+import java.util.Arrays;
+
 public class MaximumUnitsOnATruck{
     public static void main(String[] args) {
         Solution solution = new MaximumUnitsOnATruck().new Solution();
@@ -54,7 +56,17 @@ public class MaximumUnitsOnATruck{
 //leetcode submit region begin(Prohibit modification and deletion)
 class Solution {
     public int maximumUnits(int[][] boxTypes, int truckSize) {
-
+//      -----------------------------贪心---------------------------
+        // 按每种货品的装载量大小排序：
+        Arrays.sort(boxTypes , (o1, o2) -> o2[1] - o1[1]);
+        int ans = 0 ;
+        for(int i = 0 ; i < boxTypes.length && truckSize > 0 ; i++){
+            int num = Math.min(boxTypes[i][0] , truckSize) ;
+            ans += num * boxTypes[i][1] ;
+            truckSize -= num ;
+        }
+        return ans ;
+//      --------------------------------------------------------------
     }
 }
 //leetcode submit region end(Prohibit modification and deletion)

@@ -71,7 +71,41 @@ public class BaZiFuChuanZhuanHuanChengZhengShuLcof{
 //leetcode submit region begin(Prohibit modification and deletion)
 class Solution {
     public int strToInt(String str) {
-
+        // 去除字符串前后空格：
+        String s = str.trim() ;
+        // 空白字符串：
+        if(s.equals("")){
+            return 0 ;
+        }
+        int flag = 1 ; // 正负标志
+        int i = 0 ; // 下标
+        if(s.charAt(0) == '-'){
+            flag = -1 ;
+            i = 1 ;
+        }
+        if(s.charAt(0) == '+'){
+            i = 1 ;
+        }
+        long ans = 0 ;
+        for(; i < s.length() ; i++){
+            char c = s.charAt(i) ;
+            // 该字符不是数字，跳出循环：
+            if(c < '0' || c > '9'){
+                break ;
+            }
+            // 计算整数大小：
+            ans = ans * 10 + c - '0' ;
+            // 超过INT范围：
+            if(ans > Integer.MAX_VALUE || ans < Integer.MIN_VALUE){
+                if(flag == 1){
+                    return Integer.MAX_VALUE ;
+                }
+                else{
+                    return Integer.MIN_VALUE ;
+                }
+            }
+        }
+        return (int)(flag * ans) ;
     }
 }
 //leetcode submit region end(Prohibit modification and deletion)
